@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Sabka Dhan Bank</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #00bcd4, #004d66);
+            color: white;
+        }
+
+        header {
+            padding: 10px 0;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 200px;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 10px 10px;
+        }
+
+        .container h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .buttons a {
+            background-color: white;
+            color: #004d66;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .buttons a:hover {
+            background-color: #e0f7fa;
+        }
+
+        .features {
+            background: white;
+            color: #004d66;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .feature {
+            width: 250px;
+            text-align: center;
+        }
+
+        .feature i {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: #00bcd4;
+        }
+
+        .carousel {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .slide {
+            display: none;
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.15);
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .container h2 { font-size: 28px; }
+            .buttons a { width: 80%; margin-bottom: 10px; }
+            .feature { width: 100%; }
+        }
+    </style>
+    <script>
+        let currentSlide = 0;
+        function rotateSlides() {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+            currentSlide = (currentSlide + 1) % slides.length;
+        }
+        window.onload = function() {
+            rotateSlides();
+            setInterval(rotateSlides, 3000);
+        };
+    </script>
+</head>
+<body>
+
+<header>
+    <div style="display: inline-block; background: white; padding: 15px 30px; border-radius: 12px;">
+        <img src="/static/bank.png" alt="Sabka Dhan Bank Logo" style="height: 120px;">
+    </div>    
+    <p>Your Trusted Digital Banking Partner</p>
+</header>
+
+<div class="container">
+    <h2>Bank Smarter, Live Better</h2>
+    <p>Manage your money with confidence. Easy deposits, instant withdrawals, smart tools — all at your fingertips.</p>
+    <div class="buttons">
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('signup') }}">Sign Up</a>
+    </div>
+</div>
+
+<div class="carousel">
+    <div class="slide">💸 "Quick deposits and withdrawals without hassle!"</div>
+    <div class="slide">📈 "EMI and interest tools built right in!"</div>
+    <div class="slide">🔒 "100% secure and reliable banking platform"</div>
+</div>
+
+<div class="features">
+    <h2>Why Choose Sabka Dhan?</h2>
+    <div class="features-grid">
+        <div class="feature">
+            <i>💳</i>
+            <h4>Easy Transactions</h4>
+            <p>Deposit and withdraw anytime, anywhere.</p>
+        </div>
+        <div class="feature">
+            <i>📊</i>
+            <h4>EMI Calculator</h4>
+            <p>Know your monthly payments instantly.</p>
+        </div>
+        <div class="feature">
+            <i>🏦</i>
+            <h4>Interest Rates Viewer</h4>
+            <p>Compare rates from different banks.</p>
+        </div>
+        <div class="feature">
+            <i>📁</i>
+            <h4>Transaction History</h4>
+            <p>Keep track of all your money moves.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Sabka Dhan Bank. All rights reserved.
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction History</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f2f5f7;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: #27ae60;
+            margin-top: 10px;
+        }
+
+        table {
+            margin: 30px auto;
+            border-collapse: collapse;
+            width: 90%;
+            max-width: 800px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: none;
+            padding: 15px 12px;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #2980b9;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #e6f7ff;
+        }
+
+        td {
+            color: #2c3e50;
+        }
+
+        a {
+            display: inline-block;
+            margin: 20px;
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Transaction History</h1>
+    <h3>Current Balance: ₹{{ balance }}</h3>
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Time</th>
+        </tr>
+        {% for txn in transactions %}
+        <tr>
+            <td>{{ txn.type }}</td>
+            <td>₹{{ txn.amount }}</td>
+            <td>{{ txn.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('home') }}">← Back to Home</a>
+</body>
+</html>

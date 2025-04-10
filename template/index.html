@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sabka Dhan Bank</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #004d66;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #007a99;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 500px;
+            background: white;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        input, select, button {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .flash {
+            color: green;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 30px;
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🏦 Sabka Dhan Bank</h1>
+        <p>Welcome, {{ session['user_name'] }}!</p>
+    </header>
+
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('display') }}">Transactions</a>
+        <a href="{{ url_for('interest') }}">Interest Rates</a>
+        <a href="{{ url_for('emi') }}">EMI Calculator</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+
+    <div class="container">
+        <h2>Your Current Balance: ₹{{ balance }}</h2>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash">{{ messages[0] }}</div>
+            {% endif %}
+        {% endwith %}
+
+        <form action="/process" method="POST">
+            <input type="number" name="amount" placeholder="Enter Amount" required step="0.01">
+            <select name="type">
+                <option value="deposit">Deposit</option>
+                <option value="withdraw">Withdraw</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 Sabka Dhan Bank. All rights reserved.
+    </div>
+
+</body>
+</html>

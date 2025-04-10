@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interest Rate Viewer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ecf0f1;
+            margin: 0;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        select, button {
+            padding: 12px;
+            width: 280px;
+            margin: 15px 0;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        h2, h3 {
+            margin-top: 30px;
+            color: #27ae60;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 30px;
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select a Bank</h1>
+    <form method="POST">
+        <select name="bank" required>
+            <option value="" disabled selected>Select a bank</option>
+            {% for bank in bank_rates %}
+                <option value="{{ bank }}" {% if selected_bank == bank %}selected{% endif %}>{{ bank }}</option>
+            {% endfor %}
+        </select><br>
+        <button type="submit">Show Interest Rate</button>
+    </form>
+
+    {% if interest_rate %}
+        <h2>Bank: {{ selected_bank }}</h2>
+        <h3>Rate of Interest: {{ interest_rate }}%</h3>
+    {% endif %}
+
+    <br><a href="{{ url_for('home') }}">← Back to Home</a>
+</body>
+</html>
