@@ -1,0 +1,54 @@
+-- Create database and use
+CREATE DATABASE IF NOT EXISTS bank_db;
+USE bank_db;
+
+-- Users Table
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL
+);
+
+-- Transactions Table
+CREATE TABLE transactions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    type ENUM('deposit', 'withdraw') NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+--- Users Sample Data
+INSERT INTO users (name, email, password) VALUES
+('Pooja Bansal', 'pooja.bansal@gmail.com', 'bansal321'),
+('Yash Tiwari', 'yash.tiwari@gmail.com', 'yashpass789'),
+('Swati Deshmukh', 'swati.deshmukh@gmail.com', 'swati2024'),
+('Aditya Malhotra', 'aditya.malhotra@gmail.com', 'malhotra@99'),
+('Kritika Saxena', 'kritika.saxena@gmail.com', 'kritika!pass'),
+('Rajeev Nair', 'rajeev.nair@gmail.com', 'nairpass123'),
+('Simran Bhatia', 'simran.bhatia@gmail.com', 'simranpwd'),
+('Devansh Gupta', 'devansh.gupta@gmail.com', 'devgupta123'),
+('Anaya Sinha', 'anaya.sinha@gmail.com', 'anaya@789'),
+('Rohan Mehra', 'rohan.mehra@gmail.com', 'rohan456');
+
+--- Transactions Sample data
+INSERT INTO transactions (user_id, type, amount, timestamp) VALUES
+(1, 'deposit', 5000.00, '2025-04-01 10:15:00'),
+(1, 'withdraw', 1500.00, '2025-04-02 09:45:00'),
+(2, 'deposit', 12000.00, '2025-04-01 11:20:00'),
+(2, 'withdraw', 2000.00, '2025-04-03 15:30:00'),
+(3, 'deposit', 3000.00, '2025-04-02 08:30:00'),
+(4, 'deposit', 7000.00, '2025-04-01 12:10:00'),
+(4, 'withdraw', 1000.00, '2025-04-03 10:00:00'),
+(5, 'deposit', 15000.00, '2025-04-02 13:15:00'),
+(6, 'deposit', 2500.00, '2025-04-01 09:00:00'),
+(6, 'withdraw', 500.00, '2025-04-02 10:00:00'),
+(7, 'deposit', 4000.00, '2025-04-01 17:45:00'),
+(8, 'deposit', 9500.00, '2025-04-02 07:20:00'),
+(8, 'withdraw', 4500.00, '2025-04-03 12:00:00'),
+(9, 'deposit', 10500.00, '2025-04-01 14:40:00'),
+(9, 'withdraw', 1500.00, '2025-04-04 10:30:00'),
+(10, 'deposit', 5000.00, '2025-04-01 15:00:00'),
+(10, 'withdraw', 1000.00, '2025-04-02 16:00:00');
