@@ -58,8 +58,8 @@ Digital banking systems make financial services accessible to people in remote a
 - 🏦 Interest rate viewer from various banks
   ![image](https://github.com/user-attachments/assets/ff2a4ceb-e9e6-4500-982c-d7bd72c2167f)
 
-- 🧾 Transaction history and smart money tracking
-  
+- 🧾 Transaction history
+  ![image](https://github.com/user-attachments/assets/4a7d7c57-201f-4cab-9a4d-2bb8bbf58754)
 
 ---
 
