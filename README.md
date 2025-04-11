@@ -50,7 +50,8 @@ Digital banking systems make financial services accessible to people in remote a
   ![image](https://github.com/user-attachments/assets/2b5edc23-e53e-44df-95c0-7271f987b45e)
 
 - 💰 Deposit and withdraw money anytime
-  ![image](https://github.com/user-attachments/assets/eac1090b-43f4-4af3-a5e4-c5179c4c48e1)
+  ![image](https://github.com/user-attachments/assets/5fbe3e3f-b19a-4c43-9123-988e6bd803ea)
+
 
 - 📊 EMI calculator for monthly loan estimation
   ![image](https://github.com/user-attachments/assets/c8abe689-a5d1-4907-a169-d868b47e1037)
