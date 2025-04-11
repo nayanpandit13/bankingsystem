@@ -9,7 +9,7 @@ app.secret_key = 'your_secret_key'
 # MySQL config
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Pythonnov123@'
+app.config['MYSQL_PASSWORD'] = 'your password'      '''change your password and delete this comment'''
 app.config['MYSQL_DB'] = 'bank_db'
 
 mysql = MySQL(app)
